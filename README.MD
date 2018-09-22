@@ -14,7 +14,7 @@
 * ### Add group  
 
     Method: PUT   
-    http://0.0.0.0:5555/group/add
+    http://0.0.0.0:5555/group/add  
     Json: {
         "name": "new_name",
         "parent_group_id": number parent
@@ -25,9 +25,9 @@
 * ### Get group 
         
     Method: GET                                             
-    http://0.0.0.0:5555/group/get                                           
+    http://0.0.0.0:5555/group/get                                          
     Json: {                                                             
-        "id": number group,                                             
+        "id": number group                                              
         }                                    
 
 * ### Get tree group
@@ -36,7 +36,7 @@
     http://0.0.0.0:5555/group/get/tree                                          
     Json: {                                                             
         "id": number group,                                             
-        "depth": number
+        "depth": number  
         }                                    
     
     if the depth exceeds the actual, you will be given all the 
