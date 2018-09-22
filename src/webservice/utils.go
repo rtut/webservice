@@ -97,8 +97,3 @@ func InitLocalLogger() {
 	LocalLog = InitLogger(fileLocalLog, sizeLocalLog, true)
 }
 
-func CheckErr(msg string, err error) {
-	if err != nil {
-		LocalLog.Println(msg, err)
-	}
-}

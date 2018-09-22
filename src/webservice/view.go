@@ -171,16 +171,6 @@ func AddGroup(e echo.Context) error {
 	return e.JSON(http.StatusCreated, group)
 }
 
-type AAA struct {
-	Name string
-	MyId int
-}
-
-type BBB struct {
-	AAA
-	NewName string
-}
-
 func MoveGroup(e echo.Context) error {
 	var isExist bool
 	var currentGroupId int
