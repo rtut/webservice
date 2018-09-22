@@ -1,0 +1,1 @@
+{"db_host": "localhost", "db_user": "user1", "db_pass": "user1", "db_port": "5432", "service_port": 5555, "db_name": "test_app"}
