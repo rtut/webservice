@@ -15,12 +15,12 @@
 
     Method: PUT   
     http://0.0.0.0:5555/group/add  
-    Json: {
+    Json: {  
         "name": "new_name",
-        "parent_group_id": number parent
+        "parent_group_id": number parent  
         }
     
-    if you add group to root, you must send 0 in parent_group_id in json
+    If you add group to root, you must send 0 in parent_group_id in json
 
 * ### Get group 
         
@@ -39,7 +39,7 @@
         "depth": number  
         }                                    
     
-    if the depth exceeds the actual, you will be given all the 
+    If the depth exceeds the actual, you will be given all the 
     groups with all the nested subgroups                                                               
     
 * ### Move group
@@ -49,11 +49,11 @@
     Json: {                                                             
         "name": "name group",                                             
         "parent_group_d": number,
-        "new_parent_group_id": number
+        "new_parent_group_id": number  
         }                                    
     
-    Moves the group to the specified subgroup, if you specify zero, 
-    the group with all its nesting will move to the root                                                               
+    Moves the group to the specified subgroup, if you specify 0 in 
+    new_parent_group_id, the group with all its nesting will move to the root                                                              
     
 * ### Rename group
     
@@ -62,12 +62,9 @@
     Json: {                                                             
         "name": "old_name_group",                                             
         "parent_group_d": number,
-        "new_name": "new_name_group"
+        "new_name": "new_name_group"  
         }                                    
     
-    Moves the group to the specified subgroup, if you specify 0 in 
-    new_parent_group_id, the group with all its nesting will move to the root  
-
 * ### Delete group
                                                             
     http://0.0.0.0:5555/group/delete 
