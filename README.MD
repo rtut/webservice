@@ -2,12 +2,12 @@
 1. Install PostgreSQL 9.6.10
 2. Install golang 1.10
 3. Application of migrations to the database
-   * sudo psql -U postgres  (connect to postgres)
-   * \i path_to_/migration_1.sql    (migration_1.sql locate in project in folder sql)
-   * \q
-4. Start application
-   cd path/to/project/folder/webservice
-   ./webservice
+   * user@user$ sudo psql -U postgres  (connect to postgres)
+   * postgres=# \i path_to_/migration_1.sql    (migration_1.sql locate in project in folder sql)
+   * test_app=# \q
+4. Start application  
+   * user@user$ cd path/to/project/folder/webservice  
+   * user@user$ ./webservice
    
 ## API info
 
