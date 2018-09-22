@@ -1,4 +1,4 @@
-## Installation and startup instructions for go wev service
+## Installation and startup instructions for go web service
 1. Install PostgreSQL 9.6.10
 2. Install golang 1.10
 3. Application of migrations to the database
