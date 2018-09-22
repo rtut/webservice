@@ -83,19 +83,22 @@ func SetNameGroup(e echo.Context) error {
 	if err != nil {
 		LocalLog.Println(err)
 	}
-	err = DB.QueryRow(duplicateGroup, renameGroup.NewName, renameGroup.ParentGroupId).Scan(&isExist)
+	err = DB.QueryRow(duplicateGroup, renameGroup.NewName, 
+		renameGroup.ParentGroupId).Scan(&isExist)
 	if err != nil {
 		LocalLog.Println(err)
 	}
 	if isExist {
 		msg := Msg{}
-		msg.Msg = fmt.Sprintf("Group with this name %s already created in the database", renameGroup.NewName)
+		msg.Msg = fmt.Sprintf(
+			"Group with this name %s already created in the database", renameGroup.NewName)
 		return e.JSON(http.StatusBadRequest, msg)
 	}
 
 	// add info about new group in db
 	err = DB.QueryRow(
-		updateNameGroup, renameGroup.NewName, renameGroup.Name, renameGroup.ParentGroupId).Scan(&group.Id, &group.Name, &group.ParentGroupId)
+		updateNameGroup, renameGroup.NewName, renameGroup.Name, 
+		renameGroup.ParentGroupId).Scan(&group.Id, &group.Name, &group.ParentGroupId)
 	switch {
 	case err == sql.ErrNoRows:
 		return e.JSON(http.StatusNotFound, nil)
@@ -160,7 +163,8 @@ func AddGroup(e echo.Context) error {
 		}
 	}
 	// add info about new group in db
-	err = DB.QueryRow(addGroup, group.Name, group.ParentGroupId).Scan(&group.Id, &group.Name, &group.ParentGroupId)
+	err = DB.QueryRow(addGroup, group.Name, group.ParentGroupId).Scan(
+		&group.Id, &group.Name, &group.ParentGroupId)
 	if err != nil {
 		LocalLog.Println(err)
 	}
@@ -192,7 +196,9 @@ func MoveGroup(e echo.Context) error {
 		LocalLog.Println(err)
 	}
 	if isExist {
-		msg.Msg = fmt.Sprintf("The group: %d already exists, the sub-group with the same name: %s", newParentGroup.NewParentGroupId, newParentGroup.Name)
+		msg.Msg = fmt.Sprintf(
+			"The group: %d already exists, the sub-group with the same name: %s", 
+			newParentGroup.NewParentGroupId, newParentGroup.Name)
 		return e.JSON(http.StatusBadRequest, msg)
 	}
 	err = DB.QueryRow(
@@ -212,7 +218,8 @@ func MoveGroup(e echo.Context) error {
 	// add info about new group in db
 	err = DB.QueryRow(
 		updateParentGroup, newParentGroup.NewParentGroupId,
-		newParentGroup.Name, newParentGroup.ParentGroupId).Scan(&group.Id, &group.Name, &group.ParentGroupId)
+		newParentGroup.Name, newParentGroup.ParentGroupId).Scan(
+			&group.Id, &group.Name, &group.ParentGroupId)
 	switch {
 	case err == sql.ErrNoRows:
 		return e.JSON(http.StatusNotFound, nil)
