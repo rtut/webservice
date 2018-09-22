@@ -66,9 +66,9 @@
         }                                    
     
 * ### Delete group
-                                                            
+     
+    Method: DELETE                                                         
     http://0.0.0.0:5555/group/delete   
-    Method: DELETE                                       
     Json: {                                                             
         "id": number group,                                             
         }                                    
